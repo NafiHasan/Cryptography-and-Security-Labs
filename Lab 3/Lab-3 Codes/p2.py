@@ -15,9 +15,13 @@ def get_dictionary_words(length):
             if len(word) <= length:
                 # add the word to the set
                 words.add(word.lower())
+
+        # Additional words related to this assignment
         words.add("mit")
         words.add("cryptography")
         words.add("cryptographic")
+        words.add("Public-key")
+        words.add("nist")
     
     return words
 
@@ -181,7 +185,8 @@ def recursive_key_gen(key, ind, lim, threshold):
 
         for i in range(10):
             max_length = max(max_length, decrypt_test(ciphertexts[i], key, threshold))
-        # print(max_length)
+        # if threshold < 40:
+        #     print(threshold, max_length)
         return
     
     # Recursive call
@@ -199,7 +204,7 @@ def generate_and_test_keys():
 
     recursive_key_gen(final_key, 15, 30, 20)
 
-    recursive_key_gen(final_key, 30, 45, 24)
+    recursive_key_gen(final_key, 30, 45, 30)
     # print(final_key)
     # print("len3", len(final_key))
 
@@ -325,35 +330,37 @@ def main():
     generate_and_test_keys()
     
     global final_key
-    print(len(final_key))
-
-    # for i in range(10):
-    #     print(f"{i + 1}-th message: ")
-    #     decrypt(ciphertexts[i], final_key)
-    #     print()
-
-    # print("One time Pad:", final_key)
+    print("Lenght of final key:",len(final_key))
 
     
     # Apply brute force to fix some keys
+    # Uncomment some brute forces if some letters don't match
+    # final_key = brute_fix(15)
+    # final_key = brute_fix(24)
+    # final_key = brute_fix(37)
+    final_key = brute_fix(43)
+    final_key = brute_fix(49)
+    # final_key = brute_fix2(29, 30)
+    final_key = brute_fix2(23, 24)
+    final_key = brute_fix2(1, 2)
+    final_key = brute_fix(1)
+    # final_key = brute_fix(29)
+    # final_key = brute_fix3(15, 16, 17)
     final_key = brute_fix(15)
-    final_key = brute_fix(24)
-    final_key = brute_fix(37)
-    final_key = brute_fix2(29, 30)
-    final_key = brute_fix(29)
-    final_key = brute_fix3(15, 16, 17)
-    final_key = brute_fix(15)
-    # print("fina", final_key)
-    for i in range(10):
-        print(f"{i + 1}-th message: ")
-        decrypt(ciphertexts[i], final_key)
-        print()
+
+    with open ("Decrypted_Messages.txt", "w") as file:
+        for i in range(10):
+            print(f"{i + 1}-th message: ")
+            decrypted_message = decrypt(ciphertexts[i], final_key)
+            print()
+
+            # Write in a file
+            file.write(f"{i + 1}-th message: \n")
+            file.write(decrypted_message + "\n\n")
+
 
     print("One time Pad:", final_key)
 
 
 if __name__ == "__main__":
     main()
-
-
-

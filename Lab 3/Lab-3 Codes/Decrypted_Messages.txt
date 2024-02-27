@@ -1,0 +1,30 @@
+1-th message: 
+We stand today on the brink of a revolution in cryptography.
+
+2-th message: 
+Probabilistic encryption is the use of randomness in an encr
+
+3-th message: 
+Secure Sockets Layer (SSL), are cryptographic protocols that
+
+4-th message: 
+This document will detail a vulnerability in the ssh cryptog
+
+5-th message: 
+MIT developed Kerberos to protect network services provided 
+
+6-th message: 
+NIST announced a competition to develop a new cryptographic 
+
+7-th message: 
+Diffie-Hellman establishes a shared secret that can be used 
+
+8-th message: 
+Public-key cryptography refers to a cryptographic system req
+
+9-th message: 
+The keys used to sign the certificates had been stolen from 
+
+10-th message: 
+We hope this inspires others to work in this fascinating fie
+

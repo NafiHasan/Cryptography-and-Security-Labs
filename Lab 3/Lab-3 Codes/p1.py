@@ -57,20 +57,11 @@ def main():
         word1_xor_cipher1_xor_cipher2 = cipher1_xor_cipher2 ^ word1_bv
         # print(cur)
         if word1_xor_cipher1_xor_cipher2.getHexStringFromBitVector() in words_bv_hex_strings:
-            print("yes", word1, (word1_bv ^ cipher1_xor_cipher2).get_bitvector_in_ascii())
+            print(word1, (word1_bv ^ cipher1_xor_cipher2).get_bitvector_in_ascii())
+            with open ("Problem1-output.txt", "w") as file:
+                file.write(f"{word1} {(word1_bv ^ cipher1_xor_cipher2).get_bitvector_in_ascii()}")
             break
         # word2 = word1_xor_cipher1_xor_cipher2.get_bitvector_in_ascii()
-
-        # print("no - ", word1, word2)
-        # for word2 in dict_words:
-        #     word2_bv = BitVector(textstring = word2)
-        #     print(word1_xor_cipher1_xor_cipher2 , word2_bv)
-        #     if word1_xor_cipher1_xor_cipher2 == word2_bv:
-        #         print("Yes ", word1, word2)
-        #         found = True
-        #         break
-
-    print("done")
 
 if __name__ == "__main__":
     main()
